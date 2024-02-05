@@ -27,6 +27,7 @@ const PickedOutfitCard = ({
                 id='RandomCard'
                 title= {SpinnerMessage}
                 loading='eager'
+                priority = {true}
                 onClick={(event)=> {
                     let newPick : string = Outfits[0][RandomIndex(1,Outfits[0].length-1)]!;
                     while (newPick == null || newPick == event.currentTarget.src || newPick == event.currentTarget.srcset) {
