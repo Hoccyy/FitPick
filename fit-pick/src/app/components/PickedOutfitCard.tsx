@@ -3,10 +3,11 @@ import OutfitCardStyles from './PickedOutfitCard.module.css';
 import Outfits from './ClosetStorage';
 import Image from 'next/image';
 import RandomIndex from './RandomIndex';
+import { useEffect, useState } from 'react';
+import { FetchCloset } from './FetchCloset';
 
 const SpinnerMessage: string = 'Click for new outfit!';
 
-const test : string = Outfits[0][RandomIndex(0,Outfits[0].length-1)];
 
 type Props = {
     ImageSource: string
@@ -15,6 +16,23 @@ type Props = {
 const PickedOutfitCard = ({
     ImageSource = 'default.png',
 } : Props) => {
+    const [outfitList, setOutfitList] = useState<any[]>([]);
+
+    useEffect(() => {
+      FetchCloset()
+        .then((list: any) => {
+          setOutfitList(list);
+          console.log(list);
+        })
+        .catch((error: any) => {
+          console.error('Error fetching closet:', error);
+        });
+    }, []);
+    
+    // Render your components based on outfitList
+    console.log("LALALALAL")
+    console.log(outfitList)
+
     return (
         <div className={OutfitCardStyles.PrimaryCard} 
           title={SpinnerMessage}>
@@ -29,10 +47,14 @@ const PickedOutfitCard = ({
                 loading='eager'
                 priority = {true}
                 onClick={(event)=> {
-                    let newPick : string = Outfits[0][RandomIndex(1,Outfits[0].length-1)]!;
+                    //let newPick : string = Outfits[0][RandomIndex(1,Outfits[0].length-1)]!;
+                    let newPick : string = outfitList[RandomIndex(0, outfitList.length)];
                     while (newPick == null || newPick == event.currentTarget.src || newPick == event.currentTarget.srcset) {
-                        newPick = Outfits[0][RandomIndex(0,Outfits[0].length-1)]!;
+                        newPick = outfitList[RandomIndex(0, outfitList.length)];
+                        console.log("Either i changed here");
+                        console.log(newPick);
                     }
+                    console.log("Or here");
                     event.currentTarget.src = newPick;
                     event.currentTarget.srcset= newPick;
                 }}

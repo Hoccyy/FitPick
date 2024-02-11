@@ -23,7 +23,7 @@
   color: white;
   filter: blur(2.3px);
   animation: introPop 0.3s ease-in forwards;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -40,18 +40,58 @@
 
 .menu {
   z-index: 1313;
-  max-width: 100%;
-  margin-top: 130px;
-  list-style-type: none;
-  text-align: center;
   display: flex;
-  justify-content: center;
-  background-color: rgba(22, 34, 61, 0.377);
-  backdrop-filter: blur(13px);
-  border-radius: 25px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   color: white;
   position: fixed;
+  max-width: 100%;
+  margin-top: 130px;
+  text-align: center;
+  position: absolute;
+  border-radius: 25px;
+  list-style-type: none;
+  justify-content: center;
+  backdrop-filter: blur(13px);
+  background-color: rgba(22, 34, 61, 0.377);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.uploadButtonMain {
+  background-color: #000000; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 8px 35px; /* Button padding */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Add button border radius */
+  cursor: pointer; 
+}
+
+.uploadButtonMain::file-selector-button {
+  padding: 0.5em;
+  border-radius: 3px;
+  font-weight: bold;
+  background-color: black;
+  border: thin solid grey;
+  color: rgb(255, 255, 123);
+}
+
+.uploadButton {
+  z-index: 1313;
+  display: flex;
+  max-width: 100%;
+  margin-top: 90px;
+  text-align: center;
+  list-style-type: none;
+  justify-content: center;
+  left: 0;
+  text-align: center;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.uploadButtonContainer {
+  background-color: rgba(22, 34, 61, 0);
+  border-radius: 25px;
 }
 
 .centerMenu {
@@ -165,10 +205,16 @@
 
   .listItemText {
     font-size: 28px;
+    background-color: none;
+    mix-blend-mode:normal;
   }
 
   .menu {
     background-color: none;
+    backdrop-filter: blur(0);
+    box-shadow: none;
+    position: absolute; /* TODO */
+    background-color: rgba(255, 0, 0, 0);
     width: 100vw;
   }
 

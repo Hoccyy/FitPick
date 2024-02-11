@@ -1,24 +1,25 @@
+import React from 'react';
 import SmallOutfitCard from '@/app/components/SmallOutfitCard';
 import { Key } from 'react';
+import { FetchCloset } from './FetchCloset';
 
-var outfitSourceLinks : any = [
-  '/default.webp',
-  '/default2.jpeg',
-  '/test.jpg',
-];
+const getOutfits  = async () => {
+  try {
+    const outfitList = await FetchCloset();
+    const outfitElements = outfitList.map((
+      imageSource: string,
+      index: Key | null | undefined) => (
+        <SmallOutfitCard key={index} ImageSource={imageSource}/>
+    ));
+    return [
+      outfitList,
+      [outfitElements],
+    ];
+  } catch (error) {
+    console.error('Error fetching closet:', error);
+    return [];
+  }
+};
 
-var outfitElements = outfitSourceLinks.map((
-  imageSource: string,
-  index: Key | null | undefined) => (
-    <SmallOutfitCard key={index} ImageSource={imageSource}/>
-));
 
-var Outfits : any = [
-  outfitSourceLinks,
-    
-  [
-    outfitElements,
-  ]
-];
-
-export default Outfits;
+export default getOutfits;

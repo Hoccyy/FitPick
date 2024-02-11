@@ -1,20 +1,87 @@
-'use client'
+'use client';
 import styles from "./page.module.css";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import PickedOutfitCard from './components/PickedOutfitCard';
 import RandomIndex from './components/RandomIndex';
-import Outfits from './components/ClosetStorage';
+import FetchCloset from './components/ClosetStorage';
+import { useState, useEffect, Key } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { UserAuth } from './context/AuthContext';
+import { auth } from '../../firebase';
+import SmallOutfitCard from './components/SmallOutfitCard';
 
-var currOutfit = Outfits[0][RandomIndex(0,Outfits[0].length)];
+
+var defaultOutfit = '/default2.jpeg';
+
 
 export default function Home() {
+  const [outfitList, setOutfitList] = useState<any[]>([]);
+
+  useEffect(() => {
+    FetchCloset()
+      .then((list: any) => {
+        setOutfitList(list);
+        console.log(list);
+      })
+      .catch((error: any) => {
+        console.error('Error fetching closet:', error);
+      });
+  }, []);
+  
+  // Render your components based on outfitList
+  console.log(outfitList[0])
+
+  const chosenOutfit = outfitList[0] ? (
+    <PickedOutfitCard key={0} ImageSource={outfitList[0][RandomIndex(0, outfitList[0].length)]} />
+  ) : null;
+  
+
+  // Username and profile info
+  const { user } = UserAuth();
+
+  /*
+  alert({user}.user?.uid);
+  if (user !== null) {
+    user.providerData.forEach((profile : any) => {
+      console.log("Sign-in provider: " + profile.providerId);
+      console.log("  Provider-specific UID: " + profile.uid);
+      console.log("  Name: " + profile.displayName);
+      console.log("  Email: " + profile.email);
+      console.log("  Photo URL: " + profile.photoURL);
+    });
+  }  */
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      // Each user's storage
+      //console.log((user.uid + user.displayName).replaceAll(' ', ''));
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+  
+  
+  if (!user) {
+    return (
+      <main className={styles.main}>
+        <div className={styles.centerr}>
+          <h1 className={styles.AppName}>Welcome to FitPick!</h1>
+          <PickedOutfitCard ImageSource={defaultOutfit}
+          />
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.centerr}>
-        <h1 className={styles.AppName}>FitPick</h1>
-        <PickedOutfitCard ImageSource={currOutfit}
-        />
+        <h1 className={styles.AppName}>Hi, {{user}.user?.displayName}!</h1>
+        {chosenOutfit}
       </div>
     </main>
   );
