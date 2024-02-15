@@ -2,7 +2,6 @@
 import SmallOutfitCardStyles from './SmallOutfitCard.module.css';
 import Image from 'next/image';
 import { DeleteImage } from './DeleteImage';
-import { useRef } from 'react';
 
 type Props = {
     ImageSource: string
@@ -13,9 +12,6 @@ const PickedOutfitCard = ({
 } : Props) => {
 
     const handleDeleteClick = (src: string) => {
-        //alert( src);
-        // Call DeleteImage function with src or x, depending on your implementation
-        // For example:
         DeleteImage(src)
     };
 

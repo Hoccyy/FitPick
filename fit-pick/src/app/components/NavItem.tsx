@@ -4,12 +4,6 @@ import styles from '../page.module.css'
 import Link from 'next/link';
 
 
-type Props = {
-  title : string,
-  path : string,
-  desc : string
-};
-
 const NavItem = ({
     title = '',
     path = '',

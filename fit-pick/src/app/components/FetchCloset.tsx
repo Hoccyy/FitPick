@@ -1,10 +1,10 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth, app } from '../../../firebase';
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 
 export const FetchCloset = () => {
     return new Promise<string[]>((resolve, reject) => {
-        const outfitList: string[] = ['/default.webp'];
+        const outfitList: string[] = [];
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -18,18 +18,15 @@ export const FetchCloset = () => {
 
                 listAll(directoryRef)
                     .then((result) => {
-                        // Loop through each item in the folder
+                        // Loop through each photo in user folder
                         const promises: Promise<void>[] = [];
                         result.items.forEach((itemRef) => {
-                            // Get the download URL for the item
+                            // Get the download URL for each photo
                             const promise = getDownloadURL(itemRef)
                                 .then((url) => {
-                                    // Use the URL as needed (e.g., display it in an <img> tag)
-                                    // console.log('Download URL:', url);
                                     outfitList.push(url);
                                 })
                                 .catch((error) => {
-                                    // Handle errors
                                     switch (error.code) {
                                         case 'storage/object-not-found':
                                             console.error('File not found:', itemRef.name);

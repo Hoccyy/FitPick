@@ -1,8 +1,7 @@
-import React, { ChangeEvent } from 'react';
-import { UserAuth } from '../context/AuthContext';
+import { ChangeEvent } from 'react';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { auth, app } from '../../../firebase';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const UploadImage = (event: ChangeEvent<HTMLInputElement>) => {
     onAuthStateChanged(auth, (user) => {
@@ -10,13 +9,13 @@ export const UploadImage = (event: ChangeEvent<HTMLInputElement>) => {
             const userDir = (user.uid + user.displayName).replaceAll(' ', '');
             console.log(userDir)
   
-            // Root reference
+            // Root reference to storage
             const storage = getStorage(app!);
             
-            // User image
+            // User image file
             const selectedFile = event.target.files?.[0];
   
-            // Create a reference to 'images/test/test.jpg'
+            // Create a reference to 'user/image.[ext]'
             const storageRef = ref(storage, (userDir + '/' + selectedFile!.name));
   
             if (selectedFile) {

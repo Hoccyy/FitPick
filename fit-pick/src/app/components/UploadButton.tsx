@@ -1,11 +1,7 @@
 "use client"
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import styles from '../page.module.css'
 import Link from 'next/link';
-
-import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { auth, app } from '../../../firebase';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UploadImage } from './UploadImage';
 
 
@@ -39,7 +35,7 @@ const UploadButton = ({
   return (
       <li id='menuItems'>
           <h3 id='navButtons' className={styles.listItemText}>
-            {/* TODO implement multiupload */}
+            {/* TODO: implement multiupload */}
             <input className={styles.uploadButtonMain} type="file" onChange={UploadImage}/>
           </h3>
       </li>

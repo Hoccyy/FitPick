@@ -2,12 +2,9 @@
 import menuStyles from './menuStyles.module.css';
 import { UserAuth } from '../context/AuthContext';
 
-type Props = {
-    ImageSource: string
-};
 
 const Navbar = () => {
-    // Username and profile info
+  // Username and profile info
   const {user, googleSignIn, logOut} = UserAuth();
 
   const handleSignIn = async () => {
@@ -17,6 +14,7 @@ const Navbar = () => {
         console.log(error.message);
     }
   }
+
   const signOut = async () => {
     try {
         await logOut();
@@ -34,7 +32,6 @@ const Navbar = () => {
               <h1 className={menuStyles.SignupButton} onClick={handleSignIn}>Sign&nbsp;up</h1>
               <h1 className={menuStyles.LogoutButton} onClick={signOut}>Logout</h1>
           </div>
-         
         </div>
     );
 };

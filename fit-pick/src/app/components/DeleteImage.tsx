@@ -1,8 +1,6 @@
-import React, { ChangeEvent } from 'react';
-import { UserAuth } from '../context/AuthContext';
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import { auth, app } from '../../../firebase';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 export const DeleteImage = (fileName: string) => {

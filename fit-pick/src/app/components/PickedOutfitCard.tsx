@@ -1,6 +1,5 @@
 "use client";
 import OutfitCardStyles from './PickedOutfitCard.module.css';
-import Outfits from './ClosetStorage';
 import Image from 'next/image';
 import RandomIndex from './RandomIndex';
 import { useEffect, useState } from 'react';
@@ -8,13 +7,12 @@ import { FetchCloset } from './FetchCloset';
 
 const SpinnerMessage: string = 'Click for new outfit!';
 
-
 type Props = {
     ImageSource: string
 };
 
 const PickedOutfitCard = ({
-    ImageSource = 'default.png',
+    ImageSource = 'default2.jpeg',
 } : Props) => {
     const [outfitList, setOutfitList] = useState<any[]>([]);
 
@@ -29,10 +27,7 @@ const PickedOutfitCard = ({
         });
     }, []);
     
-    // Render your components based on outfitList
-    console.log("LALALALAL")
-    console.log(outfitList)
-
+    // Render your components based on user closet
     return (
         <div className={OutfitCardStyles.PrimaryCard} 
           title={SpinnerMessage}>
@@ -47,23 +42,18 @@ const PickedOutfitCard = ({
                 loading='eager'
                 priority = {true}
                 onClick={(event)=> {
-                    //let newPick : string = Outfits[0][RandomIndex(1,Outfits[0].length-1)]!;
                     let newPick : string = outfitList[RandomIndex(0, outfitList.length)];
                     while (newPick == null || newPick == event.currentTarget.src || newPick == event.currentTarget.srcset) {
                         newPick = outfitList[RandomIndex(0, outfitList.length)];
-                        console.log("Either i changed here");
                         console.log(newPick);
                     }
-                    console.log("Or here");
                     event.currentTarget.src = newPick;
                     event.currentTarget.srcset= newPick;
                 }}
                 // TODO
                 onLoad={(event)=> {
-                    console.log('Loaded');
+                    console.log('Outfit Loaded!');
                     return;
-                    event.currentTarget.src = ImageSource;
-                    event.currentTarget.srcset= ImageSource;
                 }}
             />
 
