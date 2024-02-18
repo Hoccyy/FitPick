@@ -22,7 +22,7 @@ const App = () => {
     const images = document.querySelectorAll('.outfit-image');
     const imageLoadPromises = Array.from(images).map(image =>
       new Promise(resolve => {
-        if (image.complete) {
+        if (image == null) {
           resolve;
         } else {
           image.addEventListener('load', resolve);

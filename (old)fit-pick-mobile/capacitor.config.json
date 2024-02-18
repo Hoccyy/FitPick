@@ -1,0 +1,11 @@
+{
+  "appId": "com.hoccyy.fitpick",
+  "appName": "fit-pick",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

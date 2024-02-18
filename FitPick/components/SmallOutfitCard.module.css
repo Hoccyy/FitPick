@@ -1,0 +1,77 @@
+.PrimaryCard {
+    padding: 4px;
+    margin: 11px;
+    border-radius: 13px;
+    width: 15.13dvw;
+    height: 30vh;
+    opacity: 0.9;
+}
+
+.PrimaryCard:hover {
+    animation: CardPop .4s ease-in forwards;
+}
+
+.OutfitImageStyle {
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+}
+
+.DeleteButton {
+    color: yellow;
+    border: none;
+    border-radius: 7px;
+    background-color: black;
+    outline: solid 1px grey;
+    padding: 2px 13px 2px 13px;
+    margin-bottom: 4px;
+}
+
+.DeleteButton:hover {
+    color: red;
+}
+
+@media (max-width: 700px) {
+    .PrimaryCard {
+        width: 90vw;
+    }
+    .PrimaryCard:hover {
+        animation: CardPopMobile .4s ease-in forwards;
+    }
+}
+
+/* Animation list */
+@keyframes CardPop {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0.31deg);
+    }
+    75% {
+        transform: rotate(-0.31deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+        border: 2px solid rgb(16, 16, 16);
+        width: 15.12dvw;
+    }
+}
+
+@keyframes CardPopMobile {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0.31deg);
+    }
+    75% {
+        transform: rotate(-0.31deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+        border: 2px solid rgb(16, 16, 16);
+    }
+}
