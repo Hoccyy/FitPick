@@ -8,6 +8,7 @@ import { useState, useEffect, Key } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from './context/AuthContext';
 import { auth } from '../../firebase';
+import dynamic from 'next/dynamic'
 
 
 var defaultOutfit = '/default2.jpeg';
