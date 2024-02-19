@@ -8,7 +8,6 @@ import { useState, useEffect, Key } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from './context/AuthContext';
 import { auth } from '../../firebase';
-import SmallOutfitCard from './components/SmallOutfitCard';
 
 
 var defaultOutfit = '/default2.jpeg';
@@ -81,7 +80,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.centerr}>
         <h1 className={styles.AppName}>Hi, {{user}.user?.displayName}!</h1>
-        {chosenOutfit}
+          {chosenOutfit}
       </div>
     </main>
   );

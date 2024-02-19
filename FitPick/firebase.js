@@ -21,3 +21,4 @@ const auth = getAuth(app);
 export { app, auth };
 
 // iOS - 10784791395-fsu37876k7chvibjr6rqkm3n2t7fahkc.apps.googleusercontent.com
+// Android - 10784791395-7lk4jsdpgm1isg8qu88vj9fmfcdkpc12.apps.googleusercontent.com

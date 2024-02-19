@@ -27,6 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
+          <string>FitPick</string>
           <string>com.Hoccyy.FitPick</string>
         </array>
       </dict>

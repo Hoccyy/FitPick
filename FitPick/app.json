@@ -27,6 +27,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e3fc4d53-8c8a-4e5e-920d-e116c6838d5a"
+      }
+    },
+    "scheme": "com.hoccyy.fitpick",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/e3fc4d53-8c8a-4e5e-920d-e116c6838d5a"
     }
   }
 }

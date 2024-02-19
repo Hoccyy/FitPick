@@ -1,8 +1,7 @@
-"use client";
+import { useState, useEffect} from 'react';
 import OutfitCardStyles from './PickedOutfitCard.module.css';
 import Image from 'next/image';
 import RandomIndex from './RandomIndex';
-import { useEffect, useState } from 'react';
 import { FetchCloset } from './FetchCloset';
 
 const SpinnerMessage: string = 'Click for new outfit!';
@@ -15,6 +14,7 @@ const PickedOutfitCard = ({
     ImageSource = 'default2.jpeg',
 } : Props) => {
     const [outfitList, setOutfitList] = useState<any[]>([]);
+    const [currentOutfitIndex, setCurrentOutfitIndex] = useState<number>(0);
 
     useEffect(() => {
       FetchCloset()
@@ -27,36 +27,28 @@ const PickedOutfitCard = ({
         });
     }, []);
     
-    // Render your components based on user closet
+    // Function to handle click event and change outfit
+    const handleOutfitChange = () => {
+        setCurrentOutfitIndex(RandomIndex(0, outfitList.length));
+    };
+
     return (
-        <div className={OutfitCardStyles.PrimaryCard} 
-          title={SpinnerMessage}>
+        <div className={OutfitCardStyles.PrimaryCard} title={SpinnerMessage}>
             <Image
-                src={ImageSource}
-                width = {5013}
-                height = {5013}
-                alt = {'Your amazing outfit'}
+                src={outfitList[currentOutfitIndex]}
+                width={5013}
+                height={5013}
+                alt={'Your amazing outfit'}
                 className={OutfitCardStyles.OutfitImageStyle}
                 id='RandomCard'
-                title= {SpinnerMessage}
+                title={SpinnerMessage}
                 loading='eager'
-                priority = {true}
-                onClick={(event)=> {
-                    let newPick : string = outfitList[RandomIndex(0, outfitList.length)];
-                    while (newPick == null || newPick == event.currentTarget.src || newPick == event.currentTarget.srcset) {
-                        newPick = outfitList[RandomIndex(0, outfitList.length)];
-                        console.log(newPick);
-                    }
-                    event.currentTarget.src = newPick;
-                    event.currentTarget.srcset= newPick;
-                }}
-                // TODO
+                priority={true}
+                onClick={handleOutfitChange}
                 onLoad={(event)=> {
                     console.log('Outfit Loaded!');
-                    return;
                 }}
             />
-
         </div>
     );
 };
