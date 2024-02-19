@@ -8,63 +8,28 @@ const AuthContext = createContext ()
 
 
 export const AuthContextProvider = ({children}) => {
-    try {
-        const [user, setUser] = useState(null)
-        const userAgent = (navigator.userAgent);
-
-        let googleSignIn;
-        
-        if (userAgent.toLowerCase().includes('safari')) {
-            googleSignIn = () => {
-                const provider = new GoogleAuthProvider();
-                signInWithPopup(auth, provider);
-            };
-        } else {
-            googleSignIn = () => {
-                const provider = new GoogleAuthProvider();
-                signInWithRedirect(auth, provider);
-            };
-        }
+    let googleSignIn;
+    
+    googleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithRedirect(auth, provider);
+    };
 
 
-        const logOut = () => {
-            signOut(auth);
-        }
-
-        useEffect (() => {
-            const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-                setUser(currentUser);
-            });
-            return () => unsubscribe();
-        }, [user])
-        return (
-            <AuthContext.Provider value={{user, googleSignIn, logOut}}>{children}</AuthContext.Provider>
-        )
+    const logOut = () => {
+        signOut(auth);
     }
 
-    catch {
-        let googleSignIn;
-        
-        googleSignIn = () => {
-            const provider = new GoogleAuthProvider();
-            signInWithRedirect(auth, provider);
-        };
-
-
-        const logOut = () => {
-            signOut(auth);
-        }
-
-        useEffect (() => {
-            const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-                setUser(currentUser);
-            });
-            return () => unsubscribe();
-        }, [user])
-        return (
-            <AuthContext.Provider value={{user, googleSignIn, logOut}}>{children}</AuthContext.Provider>
-        )
-    }
+    useEffect (() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => unsubscribe();
+    }, [user])
+    return (
+        <AuthContext.Provider value={{user, googleSignIn, logOut}}>{children}</AuthContext.Provider>
+    )
+    
 }
 
 export const UserAuth = () => {
