@@ -8,27 +8,28 @@ const AuthContext = createContext ()
 
 
 export const AuthContextProvider = ({children}) => {
-    let googleSignIn;
-    
-    googleSignIn = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithRedirect(auth, provider);
-    };
+        const [user, setUser] = useState(null)
+        let googleSignIn;
+        
+        googleSignIn = () => {
+            const provider = new GoogleAuthProvider();
+            signInWithRedirect(auth, provider);
+        };
 
 
-    const logOut = () => {
-        signOut(auth);
-    }
+        const logOut = () => {
+            signOut(auth);
+        }
 
-    useEffect (() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-        });
-        return () => unsubscribe();
-    }, [user])
-    return (
-        <AuthContext.Provider value={{user, googleSignIn, logOut}}>{children}</AuthContext.Provider>
-    )
+        useEffect (() => {
+            const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+                setUser(currentUser);
+            });
+            return () => unsubscribe();
+        }, [user])
+        return (
+            <AuthContext.Provider value={{user, googleSignIn, logOut}}>{children}</AuthContext.Provider>
+        )
     
 }
 
