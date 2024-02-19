@@ -5,6 +5,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  font-family: "Roboto Mono", monospace;
 }
 
 .description {
@@ -142,6 +143,14 @@
   line-height: 1.5;
   max-width: 30ch;
   text-wrap: balance;
+}
+
+.default {
+  width: 40vw;
+  height: 70vh;
+  border-radius: 13px;
+  scale: 1.03;
+  transition: transform 0.3s ease;
 }
 
 .center {

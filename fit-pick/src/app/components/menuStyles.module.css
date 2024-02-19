@@ -40,6 +40,8 @@
     border: 0.05px solid white;
     margin: 5px;
     font-size: 25px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
 }
 
 .LoginButton:hover {
@@ -55,6 +57,8 @@
     border-radius: 9px;
     margin: 5px;
     font-size: 25px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 100;
 }
 
 .LogoutButton:hover {
@@ -68,6 +72,8 @@
     border-radius: 9px;
     margin: 5px;
     font-size: 25px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 100;
 }
 
 .SignupButton {
@@ -78,6 +84,8 @@
     border: 0.05px solid white;
     margin: 5px;
     font-size: 25px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
 }
 
 .SignupButton:hover {

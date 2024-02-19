@@ -14,8 +14,6 @@ export const DeleteImage = (fileName: string) => {
             
             // User image
             const selectedFile = fileName;
-
-            alert(selectedFile);
   
             // Create a reference to 'images/test/test.jpg'
             const fileRef = ref(storage, (selectedFile));

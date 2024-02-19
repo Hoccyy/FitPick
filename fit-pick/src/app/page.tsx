@@ -8,10 +8,10 @@ import { useState, useEffect, Key } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from './context/AuthContext';
 import { auth } from '../../firebase';
-import dynamic from 'next/dynamic'
+import Image from 'next/image';
 
 
-var defaultOutfit = '/default2.jpeg';
+var defaultOutfit = './default.webp';
 
 
 export default function Home() {
@@ -70,7 +70,15 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.centerr}>
           <h1 className={styles.AppName}>Welcome to FitPick!</h1>
-          <PickedOutfitCard ImageSource={defaultOutfit}
+          <Image
+            src={'/default2.jpeg'}
+            width={5013}
+            height={5013}
+            alt={'Your amazing outfit'}
+            className={styles.default}
+            id='RandomCard'
+            loading='eager'
+            priority={true}
           />
         </div>
       </main>
