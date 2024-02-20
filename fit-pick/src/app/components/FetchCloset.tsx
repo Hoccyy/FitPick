@@ -16,6 +16,7 @@ export const FetchCloset = () => {
                 const storage = getStorage(app);
                 const directoryRef = ref(storage, userDir);
 
+
                 listAll(directoryRef)
                     .then((result) => {
                         // Loop through each photo in user folder

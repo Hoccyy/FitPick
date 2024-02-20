@@ -35,7 +35,6 @@ const App = () => {
   }, [outfitList]);
 
   
-
   return (
     <main className={styles.main}>
       <div>

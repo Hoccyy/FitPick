@@ -88,7 +88,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.centerr}>
-        <h1 className={styles.AppName}>Hi, {{user}.user?.displayName}!</h1>
+        {/*<h1 className={styles.AppName}>Hi, {{user}.user?.displayName}!</h1>*/}
+        <h1 className={styles.AppName}>Click for a choice</h1>
           {chosenOutfit}
       </div>
     </main>

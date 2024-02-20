@@ -5,6 +5,7 @@
     width: 15.13dvw;
     height: 30vh;
     opacity: 0.9;
+    margin-top: 50px;
 }
 
 .PrimaryCard:hover {
@@ -17,6 +18,15 @@
     border-radius: 13px;
 }
 
+.outfitDescription {
+    color: white;
+    width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 .DeleteButton {
     color: yellow;
     border: none;
@@ -24,7 +34,8 @@
     background-color: black;
     outline: solid 1px grey;
     padding: 2px 13px 2px 13px;
-    margin-bottom: 4px;
+    margin-bottom: 7px;
+    margin-top: 7px;
 }
 
 .DeleteButton:hover {

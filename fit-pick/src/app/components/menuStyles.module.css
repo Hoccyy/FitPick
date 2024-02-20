@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 131313;
     position: relative;
 }
 
@@ -21,7 +22,6 @@
     text-align: right;
     justify-content: space-evenly;
     border-radius: 13px;
-
 }
 
 .centerMenu {

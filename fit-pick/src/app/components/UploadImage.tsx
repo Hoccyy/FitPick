@@ -3,6 +3,7 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { auth, app } from '../../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
+
 export const UploadImage = (event: ChangeEvent<HTMLInputElement>) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {

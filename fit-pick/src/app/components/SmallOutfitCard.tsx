@@ -15,6 +15,11 @@ const PickedOutfitCard = ({
         DeleteImage(src)
     };
 
+    const match = ImageSource.match(/%2F(.*?)\?alt/);
+    const photoName = match ? match[1] : '';
+
+
+
     return (
         <div id='smallCard' className={SmallOutfitCardStyles.PrimaryCard}>
             <Image
@@ -24,12 +29,13 @@ const PickedOutfitCard = ({
                 alt={'Your amazing outfit'}
                 className={SmallOutfitCardStyles.OutfitImageStyle}
                 id={'SmallCardImage'}
-                title={'Chosen outfit'}
+                title={photoName}
                 loading='eager'
                 onError={(event) => {
                     event.currentTarget.remove();
                 }}
             />
+            <p className={SmallOutfitCardStyles.outfitDescription}>{photoName}</p>
             <button className={SmallOutfitCardStyles.DeleteButton} onClick={() => handleDeleteClick(ImageSource)}>Delete</button>
         </div>
     );

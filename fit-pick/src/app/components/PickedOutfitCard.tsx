@@ -4,7 +4,7 @@ import Image from 'next/image';
 import RandomIndex from './RandomIndex';
 import { FetchCloset } from './FetchCloset';
 
-const SpinnerMessage: string = 'Click for new outfit!';
+const SpinnerMessage: string = 'Click for a new outfit!';
 
 type Props = {
     ImageSource: string
@@ -15,6 +15,8 @@ const PickedOutfitCard = ({
 } : Props) => {
     const [outfitList, setOutfitList] = useState<any[]>([]);
     const [currentOutfitIndex, setCurrentOutfitIndex] = useState<number>(0);
+    let match;
+    let photoName;
 
     useEffect(() => {
       FetchCloset()
@@ -31,8 +33,10 @@ const PickedOutfitCard = ({
     const handleOutfitChange = () => {
         setCurrentOutfitIndex(RandomIndex(0, outfitList.length));
     };
+    
 
     return (
+        <div>
         <div className={OutfitCardStyles.PrimaryCard} title={SpinnerMessage}>
             <Image
                 src={outfitList[currentOutfitIndex]}
@@ -49,6 +53,7 @@ const PickedOutfitCard = ({
                     console.log('Outfit Loaded!');
                 }}
             />
+        </div>
         </div>
     );
 };
