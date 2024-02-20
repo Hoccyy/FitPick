@@ -26,8 +26,8 @@ export default function RootLayout({
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js" async></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap')
-    @import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto+Mono:wght@300&display=swap')
+    @import url(&apos;https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap&apos;)
+    @import url(&apos;https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto+Mono:wght@300&display=swap&apos;)
     </style>
   </head>
   return (
