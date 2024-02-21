@@ -5,6 +5,7 @@ import "./globals.css";
 import styles from './page.module.css';
 import NavItem from './components/NavItem';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import UploadButton from './components/UploadButton';
 import { AuthContextProvider } from './context/AuthContext';
 
@@ -47,6 +48,7 @@ export default function RootLayout({
           </nav>
         </div>
         {children}
+        <Footer/>
         </AuthContextProvider>
       </body>
     </html>

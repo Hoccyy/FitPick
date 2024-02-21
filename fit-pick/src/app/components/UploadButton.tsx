@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../page.module.css'
 import Link from 'next/link';
 import { UploadImage } from './UploadImage';
-
+import { UserAuth } from '../context/AuthContext';
 
 
 type Props = {
@@ -19,8 +19,12 @@ const UploadButton = ({
     path = '',
     desc = '',
     linkExist = true,
-    user = null
+
 }) => {
+  const {user} = UserAuth();
+  if (!user) {
+    return null;
+  }
   if (linkExist) {
   return (
       <li id='menuItems'>

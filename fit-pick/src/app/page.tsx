@@ -8,6 +8,7 @@ import { useState, useEffect, Key } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from './context/AuthContext';
 import { auth } from '../../firebase';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 
@@ -66,6 +67,8 @@ export default function Home() {
   
   
   if (!user) {
+    window.location.href = '/login';
+
     return (
       <main className={styles.main}>
         <div className={styles.centerr}>
@@ -84,7 +87,6 @@ export default function Home() {
       </main>
     );
   }
-
   return (
     <main className={styles.main}>
       <div className={styles.centerr}>

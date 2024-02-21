@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from '../page.module.css'
 import Link from 'next/link';
+import { UserAuth } from '../context/AuthContext';
 
 
 const NavItem = ({
@@ -9,6 +10,11 @@ const NavItem = ({
     path = '',
     desc = '',
 }) => {
+  const {user} = UserAuth();
+
+  if (!user) {
+    return null;
+  }
 
   return (
       <li id='menuItems'>

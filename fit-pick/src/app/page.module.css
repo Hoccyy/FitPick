@@ -28,6 +28,24 @@
   margin-bottom: 20px;
 }
 
+.joinMessage {
+  text-align: center;
+  color: white;
+  filter: blur(2.3px);
+  animation: introPop 0.3s ease-in forwards;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.signupMessage {
+  text-align: center;
+  color: white;
+  filter: blur(2.3px);
+  animation: introPop 0.3s ease-in forwards;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .MainClosetFrame {
   margin: 10px;
   min-width: 70vw;
@@ -82,6 +100,36 @@
   background-color: black;
   border: thin solid grey;
   color: rgb(255, 255, 123);
+}
+
+.LoginButton {
+  color: black;
+  background-color: white;
+  border: .1px solid black;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 32.13px;
+  margin: 8px;
+  width: 250px;
+}
+
+.LoginButton:hover {
+  animation: loginButtonAnim1 0.5s ease-in forwards;
+}
+
+.SignupButton {
+  color: white;
+  background-color: rgb(97, 189, 97);
+  border: .1px solid grey;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 32.13px;
+  margin: 8px;
+  width: 250px;
+}
+
+.SignupButton:hover {
+  animation: signupButtonAnim1 0.5s ease-in forwards;
 }
 
 .uploadButton {
@@ -146,6 +194,30 @@
   width: var(--max-width);
 }
 
+.AppLogo {
+  width: 450px;
+  height: 450px;
+  border-radius: 12px;
+
+}
+
+.loginMain {
+  background-color: rgb(27, 27, 27);
+  height: fit-content;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: "Oxygen Mono" monospace;
+  border-radius: 9px;
+  animation: loginAnim1 0.3s ease-in forwards;
+}
+
+
 .card p {
   margin: 0;
   opacity: 0.6;
@@ -177,6 +249,11 @@
   width: 480px;
   height: 360px;
   margin-left: -400px;
+}
+
+.footerContainer {
+  color: rgb(143, 143, 143);
+  font-size: 7px;
 }
 
 .center::after {
@@ -226,6 +303,30 @@
     font-size: 28px;
     background-color: none;
     mix-blend-mode:normal;
+  }
+
+  .AppLogo {
+    width: 87vw;
+    height: 87vw;
+  }
+
+  .buttonsFrame {
+    text-align: center;
+  }
+
+  .joinMessage {
+    font-size: 30px;
+    width: 100vw;
+  }
+
+  .LoginButton {
+    width: 280.13px;
+    font-weight: 600;
+  }
+  
+  .SignupButton {
+    width: 280.13px;
+    font-weight: 600;
   }
 
   .menu {
@@ -337,5 +438,41 @@
   100% {
     filter: blur(0);
     opacity: 1;
+  }
+}
+
+@keyframes loginButtonAnim1 {
+  0% {
+    scale: 1;
+    filter: blur(.23px);
+  }
+  100% {
+    scale: 1.03;
+    filter: blur(0);
+    background-color: black;
+    color: white;
+  }
+}
+
+@keyframes signupButtonAnim1 {
+  0% {
+    scale: 1;
+    filter: blur(.23px);
+  }
+  100% {
+    scale: 1.03;
+    filter: blur(0);
+  }
+}
+
+@keyframes loginAnim1 {
+  0% {
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    font-weight: 600;
   }
 }
