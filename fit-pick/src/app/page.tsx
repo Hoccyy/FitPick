@@ -66,8 +66,13 @@ export default function Home() {
   });
   
   
+  useEffect(() => {
+    if (!user) {
+
+      window.location.href = '/login';
+    }
+  }, []);
   if (!user) {
-    window.location.href = '/login';
 
     return (
       <main className={styles.main}>
