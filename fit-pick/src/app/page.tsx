@@ -68,34 +68,16 @@ export default function Home() {
   
   useEffect(() => {
     if (!user) {
-
       window.location.href = '/login';
     }
   }, []);
   if (!user) {
-
-    return (
-      <main className={styles.main}>
-        <div className={styles.centerr}>
-          <h1 className={styles.AppName}>Welcome to FitPick!</h1>
-          <Image
-            src={'/default2.jpeg'}
-            width={5013}
-            height={5013}
-            alt={'Your amazing outfit'}
-            className={styles.default}
-            id='RandomCard'
-            loading='eager'
-            priority={true}
-          />
-        </div>
-      </main>
-    );
+    return null;
   }
+
   return (
     <main className={styles.main}>
       <div className={styles.centerr}>
-        {/*<h1 className={styles.AppName}>Hi, {{user}.user?.displayName}!</h1>*/}
         <h1 className={styles.AppName}>Click for a choice</h1>
           {chosenOutfit}
       </div>

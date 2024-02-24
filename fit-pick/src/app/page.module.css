@@ -254,6 +254,14 @@
 .footerContainer {
   color: rgb(143, 143, 143);
   font-size: 7px;
+  margin-top: 40px;
+  border-radius: 11px;
+  padding:  15px 13px 150px 13px ;
+  text-align: center;
+}
+
+.footerHighlight:hover {
+  animation: footerHighlight 0.3s ease-in forwards;
 }
 
 .center::after {
@@ -474,5 +482,12 @@
     opacity: 1;
     filter: blur(0);
     font-weight: 600;
+  }
+}
+
+@keyframes footerHighlight {
+  0%{}
+  100%{
+    color: white;
   }
 }

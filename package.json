@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@capacitor/ios": "^5.7.0"
+  }
+}

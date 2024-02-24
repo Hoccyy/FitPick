@@ -40,7 +40,6 @@ const Navbar = () => {
   }, [outfitList]);
 
 
-  // Username and profile info
   const {user, googleSignIn, logOut} = UserAuth();
 
   const handleSignIn = async () => {
@@ -54,7 +53,7 @@ const Navbar = () => {
   const signOut = async () => {
     try {
         await logOut();
-        window.location.reload();
+        window.location.href = '/login';
     } catch (error: any) {
         console.log(error.message);
     }
@@ -73,7 +72,8 @@ const Navbar = () => {
   return (
     <div id='navbar' className={menuStyles.holder}>
       <div className={menuStyles.menuBg}>
-        <h1 className={menuStyles.LogoutButton}>≡ </h1>
+        <h1 className={menuStyles.LogoutButton}>≡</h1>
+        <h1 className={menuStyles.LogoutButton}>Admin</h1>
         <h1 className={menuStyles.Username}>{{user}.user?.displayName ? 'Hi, ' + {user}.user?.displayName + '!': '' + displayMessages[messageChoice]}</h1>
         <h1 className={menuStyles.Username} title={outfitCountMessages[RandomIndex(0, outfitCountMessages.length)]}>{(outfitList.length)} Outfits</h1>
         <h1 className={menuStyles.LogoutButton} onClick={signOut}>Logout</h1>

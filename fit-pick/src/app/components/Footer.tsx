@@ -16,8 +16,8 @@ const Footer = ({
           <div className={styles.centerFtr}>
             <div className={styles.footerContainer}>
               <h1>
-                FitPick © 2024&nbsp;&nbsp;<Link href={GitHubProfile} className={styles.footerHighlight} target='_blank'>&nbsp;• &nbsp;&nbsp;@Hoccyy¹³</Link>
-                &nbsp;&nbsp;
+                FitPick 2024 ©&nbsp;&nbsp;<Link href={GitHubProfile} className={styles.footerHighlight} target='_blank'>&nbsp;&nbsp;• &nbsp;&nbsp;&nbsp;@Hoccyy¹³</Link>
+                &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;Beta Version
               </h1>
               
             </div>
