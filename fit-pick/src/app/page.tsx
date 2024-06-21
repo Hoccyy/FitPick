@@ -9,7 +9,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from './context/AuthContext';
 import { auth } from '../../firebase';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 
 var defaultOutfit = './default.webp';
