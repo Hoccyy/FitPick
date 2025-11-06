@@ -24,7 +24,7 @@
     "googleapis": "^133.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.73.4",
+    "react-native": "0.82.1",
     "react-native-pager-view": "6.2.3",
     "react-native-tab-view": "^3.5.2",
     "react-native-typescript-transformer": "^1.2.13",
